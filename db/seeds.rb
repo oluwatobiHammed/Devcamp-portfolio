@@ -41,8 +41,12 @@ puts "5 blog posts created"
       text, and a search for 'lorem ipsum' will uncover many web sites 
       still in their infancy. Various versions have evolved over the years,
        sometimes by accident, sometimes on purpose (injected humour and the like)",
-    main_image:"http://via.placeholder.com/600.png/09f/fff%20C/O%20https://placeholder.com/",
-    thumb_image:"http://via.placeholder.com/200.png/09f/fff%20C/O%20https://placeholder.com/" 
+    main_image:"https://via.placeholder.com/600x400?text=Visit+Blogging.com+Now
+
+    C/O https://placeholder.com/",
+    thumb_image:"https://via.placeholder.com/350x200?text=Visit+Blogging.com+Now
+
+    C/O https://placeholder.com/" 
 
   )
 end
