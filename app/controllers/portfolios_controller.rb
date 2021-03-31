@@ -43,9 +43,13 @@
 
            # DELETE /portfolios/1 or /portfolios/1.json
            def destroy
+
+            # Destroy/delete the record
             @portfolio_items.destroy
+
+            # Redirect
             respond_to do |format|
-              format.html { redirect_to portfolio_url, notice: "Post was deleted." }
+              format.html { redirect_to portfolios_url, notice: "Post was deleted." }
             end
           end
 
