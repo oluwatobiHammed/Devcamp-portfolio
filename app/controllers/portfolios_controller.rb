@@ -5,9 +5,14 @@
             @portfolio_items = Portfolio.all
         end
 
+        def angular
+            @angular_portfolio_items = Portfolio.angular
+        end
+
         # GET /portfolio/new
         def new
             @portfolio_items = Portfolio.new
+            3.times { @portfolio_items.technologies.build }
         end
         # GET /portfolio/1 or /blogs/1.json
         def show
@@ -17,13 +22,13 @@
         end
         # POST /portfolio 
         def create
-            @portfolio_items = Portfolio.new(portfolio_params)
+            @portfolio_items = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body, technologies_attributes: [:name]))
 
           respond_to do |format|
               if @portfolio_items.save
                   format.html { redirect_to portfolios_path, notice: "Your portfolio item is now live." }
               else
-              format.html { render :new, status: :unprocessable_entity }
+              format.html { render :new}
 
               end
             end
@@ -32,10 +37,10 @@
           # PATCH/PUT /portfolios/1 or /portfolios/1.json
           def update
             respond_to do |format|
-              if @portfolio_items.update(portfolio_params)
-                format.html { redirect_to @portfolio_items, notice: "Your portfolio item was successfully updated." }
+              if @portfolio_items.update(params.require(:portfolio).permit(:title, :subtitle, :body))
+                format.html { redirect_to @portfolio_items, notice: "Your record  successfully updated." }
               else
-                format.html { render :edit, status: :unprocessable_entity }
+                format.html { render :edit }
               
               end
             end
