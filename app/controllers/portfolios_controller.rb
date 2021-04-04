@@ -5,6 +5,10 @@
             @portfolio_items = Portfolio.all
         end
 
+        def angular
+            @angular_portfolio_items = Portfolio.angular
+        end
+
         # GET /portfolio/new
         def new
             @portfolio_items = Portfolio.new
