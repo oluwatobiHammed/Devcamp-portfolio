@@ -4,9 +4,7 @@
 <p>
   <%= @portfolio_items.body %>
 </p>
-<p>
-  <strong>Body:</strong>
-  <%= @portfolio_items.body %>
-</p>
-<%= link_to 'Edit', edit_blog_path(@portfolio_items) %> |
-<%= link_to 'Back', portfolios_path %>
+<h2>Technologies Used: </h2>
+<% @portfolio_items.technologies.each do |t| %>
+  <p><%= t.name %> </p>
+<% end %>
