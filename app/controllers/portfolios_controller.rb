@@ -22,7 +22,7 @@
         end
         # POST /portfolio 
         def create
-            @portfolio_items = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body, technologies_attributes: [:name]))
+            @portfolio_items = Portfolio.new(portfolio_params)
 
           respond_to do |format|
               if @portfolio_items.save
@@ -36,9 +36,11 @@
 
           # PATCH/PUT /portfolios/1 or /portfolios/1.json
           def update
+            @portfolio_items = Portfolio.find(params[:id])
+
             respond_to do |format|
-              if @portfolio_items.update(params.require(:portfolio).permit(:title, :subtitle, :body))
-                format.html { redirect_to @portfolio_items, notice: "Your record  successfully updated." }
+              if @portfolio_items.update(portfolio_params)
+                format.html { redirect_to portfolios_path, notice: "Your record  successfully updated." }
               else
                 format.html { render :edit }
               
@@ -63,9 +65,13 @@
         def set_blog
             @portfolio_items = Portfolio.find(params[:id])
         end
-
+        private
         # Only allow a list of trusted parameters through.
         def portfolio_params
-            params.require(:portfolio).permit(:title,:subtitle, :body)
+          params.require(:portfolio).permit(:title,
+                                            :subtitle,
+                                            :body,
+                                             technologies_attributes: [:name]
+                                             )
         end
       end
