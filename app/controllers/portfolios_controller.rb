@@ -1,5 +1,6 @@
     class PortfoliosController < ApplicationController
         before_action :set_blog, only: %i[ show edit update destroy ]
+        layout "portfolio"
        # GET /portfolio items 
         def index
             @portfolio_items = Portfolio.all
