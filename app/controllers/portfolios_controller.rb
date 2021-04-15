@@ -20,6 +20,7 @@
         end
         # GET /portfolio/1/edit
         def edit
+          3.times { @portfolio_items.technologies.build }
         end
         # POST /portfolio 
         def create
