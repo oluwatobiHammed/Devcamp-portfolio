@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/oluwatobiHammed/oluwatobi_view_tool.git
+  revision: 3a1ff7e4d24a4532204ba4a3a6999b6ca30d0f39
+  specs:
+    oluwatobi_view_tool (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -219,6 +225,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   jquery-rails
   listen (~> 3.3)
+  oluwatobi_view_tool!
   pg (~> 1.1)
   pry-byebug
   puma (~> 5.0)
